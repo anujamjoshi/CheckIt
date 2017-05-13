@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 public class Notes extends AppCompatActivity {
     private Button btnNote;
@@ -52,9 +53,7 @@ public class Notes extends AppCompatActivity {
                 String input = etNote.getText().toString();
                 String header = etHead.getText().toString();
                 if (header.length()<=0){
-                    /*
-                    error checking add the popup saying add a header
-                     */
+                    Toast.makeText(Notes.this, "PLEASE ENTER A HEADER", Toast.LENGTH_SHORT).show();
                 }
                else if(input.length() > 0  && header.length()>0)
                 {
@@ -68,6 +67,7 @@ public class Notes extends AppCompatActivity {
                         a.add(input);
                         listDataChild.put(header, a);
                     }
+                    listAdapter.notifyDataSetChanged();
                 }
             }
         });

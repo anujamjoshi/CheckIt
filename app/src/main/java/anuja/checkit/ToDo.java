@@ -13,7 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class ToDo extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnLongClickListener {
+public class ToDo extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private Button btnAdd;
     private EditText et;
     private ListView lv;
@@ -49,8 +49,6 @@ public class ToDo extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(ToDo.this);
-        lv.setOnLongClickListener(ToDo.this);
-
     }
     public void onItemClick(AdapterView<?> l, View v, int position, long id) {
 
@@ -58,12 +56,7 @@ public class ToDo extends AppCompatActivity implements AdapterView.OnItemClickLi
         adapter.notifyDataSetChanged();
 
     }
-    @Override
-    public boolean onLongClick(View v) {
 
-        Toast.makeText(ToDo.this, "To remove...click", Toast.LENGTH_SHORT).show();
-        return false;
-    }
 
 
 
