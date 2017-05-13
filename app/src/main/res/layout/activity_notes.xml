@@ -15,9 +15,20 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText"
+
         android:layout_centerHorizontal="true"
         android:text="Add this note"
         android:backgroundTint="#120f2f"/>
+    <!--<Button-->
+        <!--android:id="@+id/deleteTaskBtn"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/editText"-->
+
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:onClick="onClick"-->
+        <!--android:text="Delete this note"-->
+        <!--android:backgroundTint="#120f2f"/>-->
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
@@ -32,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/addTaskBtn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+       />
 </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
