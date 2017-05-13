@@ -5,23 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="anuja.checkit.Notes">
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-        <Button
-            android:id="@+id/addBtn"
-            android:text="Add New Item"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="addItems"/>
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:drawSelectorOnTop="false"
-            />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:hint="Enter task"
+        android:textSize="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/addTaskBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Task"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="        Task"
+        android:id="@+id/header"
+        android:layout_below="@+id/addTaskBtn"
+        android:background="#5e5e5e"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"/>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true" />
 
 </android.support.constraint.ConstraintLayout>
