@@ -8,31 +8,31 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class ToDo extends Activity  {
     RelativeLayout ll;
+    EditText et;
+    LinearLayout lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
-        ScrollView sv = new ScrollView(this);
-        ll = (RelativeLayout)findViewById(R.id.RelativeLayoutToDO);
-        sv.addView(ll);
-        TextView tv = new TextView(this);
-        EditText et = (EditText)findViewById(R.id.editTodoText);
-//        ll.addView(et);
-        Button b = (Button)findViewById(R.id.addTodoButtonToDo);
+        ll = (RelativeLayout)findViewById(R.id.relativeLayoutTodo);
+        lv = (LinearLayout) findViewById(R.id.listViewTodo) ;
+        et = (EditText)findViewById(R.id.editTodoText);
+        Button b = (Button)findViewById(R.id.addTodoBtn);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for(int i = 0; i < 20; i++) {
-                    CheckBox cb = new CheckBox(getApplicationContext());
-                    cb.setText("I'm dynamic!");
-                    ll.addView(cb);
-                }
+               CheckBox cb = new CheckBox(getApplicationContext());
+                cb.setText(et.getText());
+                lv.addView(cb);
             }
         });
 
