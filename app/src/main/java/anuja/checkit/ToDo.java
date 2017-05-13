@@ -53,7 +53,7 @@ public class ToDo extends Activity implements AdapterView.OnItemClickListener, V
     }
     public void onItemClick(AdapterView<?> l, View v, int position, long id) {
 
-//        list.remove(position);
+        list.remove(position);
         adapter.notifyDataSetChanged();
 
     }

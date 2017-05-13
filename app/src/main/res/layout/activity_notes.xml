@@ -3,7 +3,9 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#f4f4f4" >
+    android:layout_gravity="center"
+    android:gravity="center"
+ >
     <EditText
         android:id="@+id/editHeaderText"
         android:layout_width="wrap_content"
@@ -11,28 +13,34 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
+        android:textColor="@color/colorBackground"
+
         android:hint="What is the heading of this note?"/>
-   
+
     <EditText
         android:id="@+id/editNoteContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
         android:hint="What of this note?"/>
     <Button
         android:id="@+id/addnewNoteButton"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTodoTextText"
+        android:textColor="@color/colorText"
+        android:backgroundTint="@color/colorBackground"
+        android:minWidth="10dip"
         android:text="Add Notes"
         android:layout_centerHorizontal="true"
         />
 
     <ExpandableListView
         android:id="@+id/lvExp"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+        android:textAlignment="center"
+        android:backgroundTint="#FFFFFF"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
 
 </LinearLayout>

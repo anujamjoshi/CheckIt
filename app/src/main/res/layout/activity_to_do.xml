@@ -6,15 +6,18 @@
     android:layout_height="match_parent"
     tools:context="anuja.checkit.ToDo">
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         >
         <Button
             android:id="@+id/addToDoButton1"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTodoTextText"
+            android:textColor="@color/colorText"
+            android:backgroundTint="@color/colorBackground"
+            android:minWidth="10dip"
             android:text="Add task"
             android:layout_centerHorizontal="true"
 
@@ -28,9 +31,12 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="26dp"
+            android:textColor="@color/colorPrimaryDark"
+
             android:hint="What is important for today?"/>
         <ListView
             android:id="@+id/listViewToDo"
+            android:background="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/addToDoButton1"

@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 
 public class Notes extends Activity {
-    private Button btnHeader;
     private Button btnNote;
     private EditText etHead;
     private EditText etNote;
@@ -73,6 +72,5 @@ public class Notes extends Activity {
             }
         });
         etNote = (EditText)findViewById(R.id.editNoteContent);
-//
     }
 }
