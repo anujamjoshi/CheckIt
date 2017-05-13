@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="anuja.checkit.Notes">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
-    <Button
-        android:id="@+id/addTaskBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText"
-        android:text="Add this note"
-        android:layout_centerHorizontal="true"
-
-
-        />
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#f4f4f4" >
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editHeaderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:ems="10"
-        android:hint="What do you want to note down?"/>
-    <ListView
-        android:id="@+id/listView1"
+        android:hint="What is the heading of this note?"/>
+   
+    <EditText
+        android:id="@+id/editNoteContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addTaskBtn"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:smoothScrollbar="true"
-       />
-</RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginTop="26dp"
+        android:hint="What of this note?"/>
+    <Button
+        android:id="@+id/addnewNoteButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTodoTextText"
+        android:text="Add Notes"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
+</LinearLayout>

@@ -1,48 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-    <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
-    tools:context="anuja.checkit.ToDo"
-        android:id="@+id/relativeLayoutTodo"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-android:orientation="vertical"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="anuja.checkit.ToDo">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+
+        >
         <Button
-            android:id="@+id/addTodoBtn"
+            android:id="@+id/addToDoButton1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editTodoText"
-            android:text="Add this note"
+            android:layout_below="@+id/editTodoTextText"
+            android:text="Add task"
             android:layout_centerHorizontal="true"
 
 
             />
 
         <EditText
-            android:id="@+id/editTodoText"
+            android:id="@+id/editTodoTextText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="26dp"
-            android:ems="10"
-            android:hint="What do you want to note down?"/>
-         <LinearLayout
+            android:hint="What is important for today?"/>
+        <ListView
+            android:id="@+id/listViewToDo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/listViewTodo"
-            android:orientation="vertical">
-             <CheckedTextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content" />
-         </LinearLayout>
+            android:layout_below="@+id/addToDoButton1"
+            android:layout_centerHorizontal="true"
+            android:smoothScrollbar="true"
+            />
     </RelativeLayout>
-    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
