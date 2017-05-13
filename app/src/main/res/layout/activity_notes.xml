@@ -8,7 +8,7 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    
+
     >
     <Button
         android:id="@+id/addTaskBtn"
@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true"
-        android:text="ADD Values to listview" />
+        android:text="Add this note"
+        android:backgroundTint="#120f2f"/>
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
@@ -25,7 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
         android:ems="10"
-        android:hint="Add elements listView"/>
+        android:hint="What do you want to note down?"/>
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
