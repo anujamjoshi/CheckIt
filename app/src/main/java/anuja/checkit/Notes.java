@@ -11,13 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import anuja.checkit.R;
 
-public class Notes extends Activity implements AdapterView.OnItemClickListener
-{
+public class Notes extends Activity implements AdapterView.OnItemClickListener, View.OnLongClickListener {
     private Button btnAdd;
     private EditText et;
     private ListView lv;
@@ -52,11 +52,19 @@ public class Notes extends Activity implements AdapterView.OnItemClickListener
 
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(Notes.this);
+        lv.setOnLongClickListener(Notes.this);
 
     }
     public void onItemClick(AdapterView<?> l, View v, int position, long id) {
         list.remove(position);
         adapter.notifyDataSetChanged();
+
+    }
+    @Override
+    public boolean onLongClick(View v) {
+
+        Toast.makeText(Notes.this, "To remove...click", Toast.LENGTH_SHORT).show();
+        return false;
     }
 
 
