@@ -34,7 +34,7 @@ public class Notes extends Activity implements OnClickListener
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, list);
 
         // set the lv variable to your list in the xml
-        lv=(ListView)findViewById(R.id.list);
+        lv=(ListView)findViewById(R.id.listView1);
         lv.setAdapter(adapter);
     }
     public void onClick(View v)
