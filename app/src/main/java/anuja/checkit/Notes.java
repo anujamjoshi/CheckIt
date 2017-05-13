@@ -2,14 +2,14 @@ package anuja.checkit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 
-public class Notes extends Activity {
+public class Notes extends AppCompatActivity {
     private Button btnNote;
     private EditText etHead;
     private EditText etNote;

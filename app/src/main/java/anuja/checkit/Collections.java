@@ -3,7 +3,7 @@ package anuja.checkit;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Collections extends AppCompatActivity {
+public class Collections extends  AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,6 +1,7 @@
 package anuja.checkit;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class ToDo extends Activity implements AdapterView.OnItemClickListener, View.OnLongClickListener {
+public class ToDo extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnLongClickListener {
     private Button btnAdd;
     private EditText et;
     private ListView lv;
