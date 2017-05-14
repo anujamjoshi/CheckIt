@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import static android.media.CamcorderProfile.get;
 
 
-public class ToDo extends AppCompatActivity {
+public class ToDo extends Activity {
     private Button btnAdd;
     private EditText et;
     private ListView lv;

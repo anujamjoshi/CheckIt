@@ -39,6 +39,7 @@ public class Notes extends AppCompatActivity {
         // setting list adapter
         expListView.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
         expListView.setAdapter(listAdapter);
+
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long id) {
