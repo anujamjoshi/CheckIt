@@ -1,5 +1,6 @@
 package anuja.checkit;
 import android.app.Activity;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,11 +10,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
+import static android.media.CamcorderProfile.get;
 
-public class ToDo extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
+public class ToDo extends AppCompatActivity {
     private Button btnAdd;
     private EditText et;
     private ListView lv;
@@ -48,14 +52,20 @@ public class ToDo extends AppCompatActivity implements AdapterView.OnItemClickLi
         lv=(ListView)findViewById(R.id.listViewToDo);
 
         lv.setAdapter(adapter);
-        lv.setOnItemClickListener(ToDo.this);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView text = (TextView) view;
+                if ((text.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) > 0) {
+                    text.setPaintFlags( text.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                }
+                else{
+                    text.setPaintFlags( text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                }
+            }
+        });
     }
-    public void onItemClick(AdapterView<?> l, View v, int position, long id) {
 
-        list.remove(position);
-        adapter.notifyDataSetChanged();
-
-    }
 
 
 
