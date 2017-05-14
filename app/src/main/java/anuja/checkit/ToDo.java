@@ -3,6 +3,7 @@ import android.app.Activity;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -64,6 +65,19 @@ public class ToDo extends AppCompatActivity {
                 }
             }
         });
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                int duration = Toast.LENGTH_SHORT;
+                String item = list.get(i);
+                Toast toast = Toast.makeText(getApplicationContext(), "Deleting to do item " +item, duration);
+                toast.show();
+                list.remove(i);
+                adapter.notifyDataSetChanged();
+                return true;
+            }
+        });
+
     }
 
 
