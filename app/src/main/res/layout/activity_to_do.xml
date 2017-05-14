@@ -34,14 +34,16 @@
             android:textColor="@color/colorPrimaryDark"
 
             android:hint="What is important for today?"/>
-        <ListView
+        <LinearLayout
             android:id="@+id/listViewToDo"
+            android:orientation="vertical"
             android:background="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/addToDoButton1"
             android:layout_centerHorizontal="true"
             android:smoothScrollbar="true"
-            />
+            >
+            </LinearLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

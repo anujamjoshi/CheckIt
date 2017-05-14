@@ -1,87 +1,40 @@
 package anuja.checkit;
-import android.app.Activity;
-import android.graphics.Paint;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-import java.util.ArrayList;
-
-import static android.media.CamcorderProfile.get;
+import android.widget.LinearLayout;
 
 
-public class ToDo extends Activity {
+public class ToDo extends AppCompatActivity {
     private Button btnAdd;
     private EditText et;
-    private ListView lv;
-    ArrayList<String> list ;
-    ArrayAdapter<String> adapter;
-
+    private String PREF_NAME = "toDo.txt";
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
-
-        btnAdd = (Button)findViewById(R.id.addToDoButton1);
+        //Auto-populate
+        btnAdd = (Button) findViewById(R.id.addToDoButton1);
         btnAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 String input = et.getText().toString();
-                if(input.length() > 0)
-                {
-                    // add string to the adapter, not the listview
-                    adapter.add(input);
-                    System.out.println(input);
-                    // no need to call adapter.notifyDataSetChanged(); as it is done by the adapter.add() method
-                }
-            }
-        });
-        et = (EditText)findViewById(R.id.editTodoTextText);
-        list = new ArrayList<String>();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, list);
+                if (input.length() > 0) {
 
-        // set the lv variable to your list in the xml
-        lv=(ListView)findViewById(R.id.listViewToDo);
+                    LinearLayout lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
+                    CheckBox checkBox = new CheckBox(ToDo.this);
+                    checkBox.setText(input);
+                    lLayout.addView(checkBox);
+                }
+            }
+        });
+        et = (EditText) findViewById(R.id.editTodoTextText);
 
-        lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TextView text = (TextView) view;
-                if ((text.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) > 0) {
-                    text.setPaintFlags( text.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
-                }
-                else{
-                    text.setPaintFlags( text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                }
-            }
-        });
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                int duration = Toast.LENGTH_SHORT;
-                String item = list.get(i);
-                Toast toast = Toast.makeText(getApplicationContext(), "Deleting to do item " +item, duration);
-                toast.show();
-                list.remove(i);
-                adapter.notifyDataSetChanged();
-                return true;
-            }
-        });
 
     }
-
-
-
-
-
 }
