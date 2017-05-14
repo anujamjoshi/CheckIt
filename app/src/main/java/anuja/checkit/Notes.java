@@ -5,10 +5,14 @@ import java.util.List;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
+
+import static android.R.id.list;
 
 public class Notes extends AppCompatActivity {
     private Button btnNote;
@@ -33,7 +37,20 @@ public class Notes extends AppCompatActivity {
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
         // setting list adapter
+        expListView.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
         expListView.setAdapter(listAdapter);
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long id) {
+                String key = listDataHeader.get(groupPosition);
+                listDataChild.get(key).remove(childPosition);
+                if (listDataChild.get(key).size()<=0){
+                    listDataHeader.remove(key);
+                }
+                listAdapter.notifyDataSetChanged();
+                return true;
+            }
+        });
     }
 
     /*

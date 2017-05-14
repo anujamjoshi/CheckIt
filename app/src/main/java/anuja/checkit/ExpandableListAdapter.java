@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckedTextView;
 import android.widget.TextView;
 
 import anuja.checkit.R;
@@ -21,6 +22,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
                                  HashMap<String, List<String>> listChildData) {
+        super();
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
@@ -34,6 +36,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
+
         return childPosition;
     }
 
@@ -49,7 +52,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.list_item, null);
         }
 
-        TextView txtListChild = (TextView) convertView
+        CheckedTextView txtListChild = (CheckedTextView) convertView
                 .findViewById(R.id.lblListItem);
 
         txtListChild.setText(childText);
@@ -64,16 +67,19 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
+
         return this._listDataHeader.get(groupPosition);
     }
 
     @Override
     public int getGroupCount() {
+
         return this._listDataHeader.size();
     }
 
     @Override
     public long getGroupId(int groupPosition) {
+
         return groupPosition;
     }
 
@@ -97,11 +103,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean hasStableIds() {
+
         return false;
     }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
+
         return true;
     }
 }

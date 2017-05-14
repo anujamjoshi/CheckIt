@@ -6,7 +6,7 @@
     android:layout_gravity="center"
     android:gravity="center">
 
-    <TextView
+    <CheckedTextView
         android:id="@+id/lblListItem"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
