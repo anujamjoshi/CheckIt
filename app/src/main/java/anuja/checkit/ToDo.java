@@ -9,11 +9,17 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+
 
 public class ToDo extends AppCompatActivity {
     private Button btnAdd;
+    LinearLayout lLayout;
     private EditText et;
+    private ArrayList<CheckBox> cbList = new ArrayList<>();
     private String PREF_NAME = "toDo.txt";
+    protected int id = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,15 +32,26 @@ public class ToDo extends AppCompatActivity {
                 String input = et.getText().toString();
                 if (input.length() > 0) {
 
-                    LinearLayout lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
-                    CheckBox checkBox = new CheckBox(ToDo.this);
+                    lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
+                    final CheckBox checkBox = new CheckBox(ToDo.this);
                     checkBox.setText(input);
+                    cbList.add(checkBox);
+
+                    checkBox.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View view) {
+                            cbList.remove(checkBox);
+                            lLayout.removeView(view);
+                            return true;
+                        }
+                    });
                     lLayout.addView(checkBox);
                 }
             }
         });
         et = (EditText) findViewById(R.id.editTodoTextText);
 
-
     }
+
+
 }
