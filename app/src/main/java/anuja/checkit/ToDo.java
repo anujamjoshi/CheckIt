@@ -30,7 +30,7 @@ public class ToDo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
         //Auto-populate
-
+        retrieveFromPreference();
         btnAdd = (Button) findViewById(R.id.addToDoButton1);
         btnAdd.setOnClickListener(new OnClickListener() {
             @Override
@@ -43,12 +43,14 @@ public class ToDo extends AppCompatActivity {
                     checkBox.setText(input);
                     checkBox.setId(cbList.size());
                     cbList.add(checkBox);
+                    saveCheckBoxStates();
 
                     checkBox.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View view) {
                             cbList.remove(checkBox);
                             lLayout.removeView(view);
+                            saveCheckBoxStates();
                             return true;
                         }
                     });
@@ -86,6 +88,7 @@ public class ToDo extends AppCompatActivity {
                 checkBox.setId(cbList.size());
                 checkBox.setChecked(true);
                 cbList.add(checkBox);
+                lLayout.addView(checkBox);
                 checkBox.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View view) {
@@ -105,6 +108,7 @@ public class ToDo extends AppCompatActivity {
                     checkBox.setId(cbList.size());
                     checkBox.setChecked(false);
                     cbList.add(checkBox);
+                    lLayout.addView(checkBox);
                     checkBox.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View view) {
