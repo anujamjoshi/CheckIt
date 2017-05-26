@@ -25,7 +25,9 @@ public class ToDo extends AppCompatActivity {
     LinearLayout lLayout;
     private EditText et;
     private ArrayList<CheckBox> cbList = new ArrayList<>();
-
+    public ArrayList<CheckBox> getCbList() {
+        return cbList;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

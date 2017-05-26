@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "428058673557",
+    "firebase_url": "https://checkit-162a5.firebaseio.com",
+    "project_id": "checkit-162a5",
+    "storage_bucket": "checkit-162a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428058673557:android:f329df4c1ef203b1",
+        "android_client_info": {
+          "package_name": "anuja.checkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428058673557-36q9gjj9o2evu1ti94015155jrcg8hgt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "anuja.checkit",
+            "certificate_hash": "a42ef7f9a43c9f926593ac69f1dc827f5e18d202"
+          }
+        },
+        {
+          "client_id": "428058673557-prvpkk7vcjdop7r0remf5r2j0k4v7jat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAma1UMmEB_OrJRhbu0njaOibSKRb5Il_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428058673557-prvpkk7vcjdop7r0remf5r2j0k4v7jat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

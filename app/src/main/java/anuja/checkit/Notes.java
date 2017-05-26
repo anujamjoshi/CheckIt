@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -85,6 +86,7 @@ public class Notes extends AppCompatActivity {
                         a.add(input);
                         listDataChild.put(header, a);
                     }
+//                    Log.d("Hello", listDataChild.size()+"" );
                     listAdapter.notifyDataSetChanged();
                 }
             }
