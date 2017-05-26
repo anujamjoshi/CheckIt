@@ -29,16 +29,16 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:weightSum="2"
+            android:weightSum="1"
             android:orientation="horizontal"
             >
-            <Button
-                android:id="@+id/dailyLog_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/dailylog_button"
-                android:layout_weight="1"
-                />
+            <!--<Button-->
+                <!--android:id="@+id/dailyLog_button"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/dailylog_button"-->
+                <!--android:layout_weight="1"-->
+                <!--/>-->
             <Button
                 android:id="@+id/toDo_button"
                 android:layout_width="0dp"
@@ -51,17 +51,17 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:weightSum="2"
+            android:weightSum="1"
             android:orientation="horizontal"
             >
 
-        <Button
-            android:id="@+id/collections_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/collection_button"
-            android:layout_weight="1"
-            />
+        <!--<Button-->
+            <!--android:id="@+id/collections_button"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/collection_button"-->
+            <!--android:layout_weight="1"-->
+            <!--/>-->
         <Button
             android:id="@+id/notes_button"
             android:layout_width="0dp"

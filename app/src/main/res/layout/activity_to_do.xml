@@ -2,22 +2,22 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context="anuja.checkit.ToDo"
     android:layout_gravity="center"
 
     >
 
-    <RelativeLayout
-            android:layout_width="wrap_content"
+    <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="top"
-    >
+        >
         <EditText
             android:id="@+id/editTodoTextText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -29,7 +29,7 @@
         <Button
             android:id="@+id/addToDoButton1"
             android:layout_below="@id/editTodoTextText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorText"
             android:backgroundTint="@color/colorBackground"
@@ -44,7 +44,7 @@
             android:id="@+id/listViewToDo"
             android:orientation="vertical"
             android:background="#FFFFFF"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:smoothScrollbar="true"
@@ -52,8 +52,7 @@
                 android:layout_gravity="left"
             android:layout_below="@id/addToDoButton1"
             >
-
             </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -26,19 +26,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ToDo.class));
             }
         });
-        Button collectionsButton = (Button)  findViewById(R.id.collections_button);
-        collectionsButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, Collections.class));
-            }
-        });
-        Button dailyLog = (Button)  findViewById(R.id.dailyLog_button);
-        dailyLog.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, DailyLog.class));
-            }
-        });
+//        Button collectionsButton = (Button)  findViewById(R.id.collections_button);
+//        collectionsButton.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                startActivity(new Intent(MainActivity.this, Collections.class));
+//            }
+//        });
+//        Button dailyLog = (Button)  findViewById(R.id.dailyLog_button);
+//        dailyLog.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                startActivity(new Intent(MainActivity.this, DailyLog.class));
+//            }
+//        });
     }
 }

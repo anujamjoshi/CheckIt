@@ -3,6 +3,7 @@ package anuja.checkit;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -41,24 +42,31 @@ public class ToDo extends AppCompatActivity {
                     lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
                     final CheckBox checkBox = new CheckBox(ToDo.this);
                     checkBox.setText(input);
+                    //checkBox.setChecked(true);
                     checkBox.setId(cbList.size());
                     cbList.add(checkBox);
-                    saveCheckBoxStates();
 
                     checkBox.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View view) {
                             cbList.remove(checkBox);
                             lLayout.removeView(view);
-                            saveCheckBoxStates();
+                            remove(checkBox.getText().toString());
                             return true;
                         }
                     });
                     lLayout.addView(checkBox);
+                    saveCheckBoxStates();
                 }
             }
         });
         et = (EditText) findViewById(R.id.editTodoTextText);
+
+    }
+    public void remove(String input){
+        SharedPreferences.Editor pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE).edit();
+     pref.remove(input);
+        pref.commit();
 
     }
     public void saveCheckBoxStates() {
@@ -81,12 +89,13 @@ public class ToDo extends AppCompatActivity {
             String key = entry.getKey();
 
             if(entry.getValue().equals("true")) {
+                Log.d("ANuja", "FPJIDS ");
 
                 lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
                 final CheckBox checkBox = new CheckBox(ToDo.this);
                 checkBox.setText(key);
-                checkBox.setId(cbList.size());
                 checkBox.setChecked(true);
+
                 cbList.add(checkBox);
                 lLayout.addView(checkBox);
                 checkBox.setOnLongClickListener(new View.OnLongClickListener() {
@@ -94,6 +103,7 @@ public class ToDo extends AppCompatActivity {
                     public boolean onLongClick(View view) {
                         cbList.remove(checkBox);
                         lLayout.removeView(view);
+                        remove(checkBox.getText().toString());
                         return true;
                     }
                 });
@@ -105,7 +115,7 @@ public class ToDo extends AppCompatActivity {
                     lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
                     final CheckBox checkBox = new CheckBox(ToDo.this);
                     checkBox.setText(key);
-                    checkBox.setId(cbList.size());
+
                     checkBox.setChecked(false);
                     cbList.add(checkBox);
                     lLayout.addView(checkBox);
@@ -119,6 +129,7 @@ public class ToDo extends AppCompatActivity {
                     });
                 }
             }
+            saveCheckBoxStates();
         }
     }
 
