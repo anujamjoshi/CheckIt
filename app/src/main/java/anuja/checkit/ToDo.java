@@ -33,13 +33,16 @@ public class ToDo extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-       // Paper.book().write("Test", cbList);
+        Paper.book().write("Test", cbList);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
         //Auto-populate
-         ArrayList<CheckBox> cbList1 = Paper.book().read("Test");
-        if (cbList1!=null){
-            Log.d("NUM" , cbList1.size()+"");
+         cbList = Paper.book().read("Test");
+        if (cbList!=null){
+            Log.d("NUM" , cbList.size()+"");
+            for(CheckBox c : cbList){
+                lLayout.addView(c);
+            }
         }
         else
         {
@@ -75,10 +78,11 @@ public class ToDo extends AppCompatActivity {
 
 
                 }
-                Paper.book().write("Test", cbList);
+
 
             }
         });
+        Paper.book().write("Test", cbList);
         et = (EditText) findViewById(R.id.editTodoTextText);
     }
 
