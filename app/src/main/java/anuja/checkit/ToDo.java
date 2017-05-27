@@ -15,6 +15,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Map;
 
+import io.paperdb.Book;
+import io.paperdb.Paper;
+
 import static android.R.id.input;
 import static android.R.id.list;
 import static android.system.Os.remove;
@@ -33,6 +36,7 @@ public class ToDo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
         //Auto-populate
+
         btnAdd = (Button) findViewById(R.id.addToDoButton1);
         btnAdd.setOnClickListener(new OnClickListener() {
             @Override
@@ -46,6 +50,7 @@ public class ToDo extends AppCompatActivity {
                     checkBox.setId(cbList.size());
                     cbList.add(checkBox);
 
+
                     checkBox.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View view) {
@@ -57,6 +62,7 @@ public class ToDo extends AppCompatActivity {
                         }
                     });
                     lLayout.addView(checkBox);
+                     Book todo = Paper.book().write("TODO", cbList);
                 }
             }
         });
