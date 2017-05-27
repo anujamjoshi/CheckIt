@@ -33,15 +33,25 @@ public class ToDo extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+       // Paper.book().write("Test", cbList);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do);
         //Auto-populate
-
+         ArrayList<CheckBox> cbList1 = Paper.book().read("Test");
+        if (cbList1!=null){
+            Log.d("NUM" , cbList1.size()+"");
+        }
+        else
+        {
+            Log.d("NO NUM" , "bhggftd");
+        }
         btnAdd = (Button) findViewById(R.id.addToDoButton1);
         btnAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String input = et.getText().toString();
+//                String input = Paper.book().read("Test");
                 if (input.length() > 0) {
 
                     lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
@@ -65,8 +75,8 @@ public class ToDo extends AppCompatActivity {
 
 
                 }
-                Paper.book().write("Test", "JO");
-                Log.d("HELLO " , Paper.book().read("Test")+"");
+                Paper.book().write("Test", cbList);
+
             }
         });
         et = (EditText) findViewById(R.id.editTodoTextText);
