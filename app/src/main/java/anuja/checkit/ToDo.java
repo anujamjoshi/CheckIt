@@ -62,8 +62,11 @@ public class ToDo extends AppCompatActivity {
                         }
                     });
                     lLayout.addView(checkBox);
-                     Book todo = Paper.book().write("TODO", cbList);
+
+
                 }
+                Paper.book().write("Test", "JO");
+                Log.d("HELLO " , Paper.book().read("Test")+"");
             }
         });
         et = (EditText) findViewById(R.id.editTodoTextText);
