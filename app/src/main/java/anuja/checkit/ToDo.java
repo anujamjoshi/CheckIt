@@ -29,7 +29,7 @@ public class ToDo extends AppCompatActivity {
     LinearLayout lLayout;
     private EditText et;
     private ArrayList<ToDoVals> toDoValsArrayList;
-    private ArrayList<String> toDoListtext ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,8 @@ public class ToDo extends AppCompatActivity {
         lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
         et = (EditText) findViewById(R.id.editTodoTextText);
         toDoValsArrayList = Paper.book().read("ToDOList");
-        toDoListtext = new ArrayList<>();
        if (toDoValsArrayList!=null && toDoValsArrayList.size()>0){
+           Log.d("Test", toDoValsArrayList.size()+"");
            for (ToDoVals a : toDoValsArrayList){
                CheckBox cb = new CheckBox(ToDo.this);
                cb.setText(a.getTextVal());

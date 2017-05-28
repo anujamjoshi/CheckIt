@@ -1,5 +1,7 @@
 package anuja.checkit;
 
+import android.widget.CheckBox;
+
 /**
  * Created by Anuja  on 5/28/17.
  */
