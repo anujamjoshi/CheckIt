@@ -19,6 +19,7 @@ import java.util.Map;
 import io.paperdb.Book;
 import io.paperdb.Paper;
 
+import static android.R.attr.id;
 import static android.R.id.input;
 import static android.R.id.list;
 import static android.system.Os.remove;
@@ -29,6 +30,7 @@ public class ToDo extends AppCompatActivity {
     LinearLayout lLayout;
     private EditText et;
     private ArrayList<ToDoVals> toDoValsArrayList;
+    private ArrayList<CheckBox> toDoCheckBoxList;
 
 
     @Override
@@ -42,49 +44,67 @@ public class ToDo extends AppCompatActivity {
        if (toDoValsArrayList!=null && toDoValsArrayList.size()>0){
            Log.d("Test", toDoValsArrayList.size()+"");
            for (ToDoVals a : toDoValsArrayList){
-               CheckBox cb = new CheckBox(ToDo.this);
+               final CheckBox cb = new CheckBox(ToDo.this);
                cb.setText(a.getTextVal());
                cb.setChecked(a.isDone());
+               cb.setId(a.getId());
+//               toDoCheckBoxList.add(cb);
                lLayout.addView(cb);
+               cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                   @Override
+                   public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                       Log.d("IS Checked ", cb.isChecked()+" " +toDoValsArrayList.get(cb.getId()).isDone()+"");
+                       int id = cb.getId();
+                       toDoValsArrayList.get(id).switchDone();
+                       Log.d("IS Checked ", cb.isChecked()+" " +toDoValsArrayList.get(cb.getId()).getTextVal()+ " " +toDoValsArrayList.get(cb.getId()).isDone()+"");
+                        Paper.book().write("ToDOList", toDoValsArrayList);
+                   }
+               });
+
            }
        }
        else{
            toDoValsArrayList= new ArrayList<>();
        }
+       toDoCheckBoxList= new ArrayList<>();
         btnAdd = (Button) findViewById(R.id.addToDoButton1);
         btnAdd.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                String input = (et.getText().toString());
                 if (input.length()>0 ){
-                    final ToDoVals tdv = new ToDoVals(input, false);
+                    final ToDoVals tdv = new ToDoVals(input, false, toDoValsArrayList.size());
                     final CheckBox cb = new CheckBox(ToDo.this);
                     cb.setText(input);
+                    cb.setId(toDoValsArrayList.size());
                     lLayout.addView(cb);
+            //        toDoCheckBoxList.add(cb);
                     toDoValsArrayList.add(tdv);
                     cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                            Log.d("IS Checked ", cb.isChecked()+"");
-                            if(cb.isChecked()==false){
-                                tdv.setDone(false);
+                            Log.d("IS Checked ", cb.isChecked()+" " +toDoValsArrayList.get(cb.getId()).isDone()+"");
+                            int id = cb.getId();
+                            toDoValsArrayList.get(id).switchDone();
+                            Paper.book().write("ToDOList", toDoValsArrayList);
+
+                        }
+
+
+                    });
+                    cb.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View view) {
+                            String text = cb.getText().toString();
+                            for (int i =0; i < toDoValsArrayList.size(); i++){
+                                if(toDoValsArrayList.get(i).getId() == cb.getId()){
+                                    toDoValsArrayList.remove(i);
+                                }
                             }
-                            else{
-                                tdv.setDone(true);
-                            }
+                            lLayout.removeView(view);
+                            return true;
                         }
                     });
-//                    cb.setOnLongClickListener(new View.OnLongClickListener() {
-//                        @Override
-//                        public boolean onLongClick(View view) {
-//                            String text = cb.getText().toString();
-//                            for (int i =0; i < toDoValsArrayList.size(); i++){
-//                                if()
-//                            }
-//                            lLayout.removeView(view);
-//                            return true;
-//                        }
-//                    });
 
                 }
                 Log.d("Size" , toDoValsArrayList.size()+"");
@@ -92,7 +112,6 @@ public class ToDo extends AppCompatActivity {
             }
         });
     }
-
 
 
 

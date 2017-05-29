@@ -9,12 +9,18 @@ import android.widget.CheckBox;
 public class ToDoVals {
     private String textVal;
     private boolean done;
-    public ToDoVals(String textVal, boolean done){
+    int id;
+    public ToDoVals(String textVal, boolean done, int id){
         this.textVal= textVal;
         this.done = done;
+        this.id = id;
     }
     public boolean isDone(){
         return  done;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTextVal() {
@@ -27,5 +33,9 @@ public class ToDoVals {
 
     public void setTextVal(String textVal) {
         this.textVal = textVal;
+    }
+
+    public void switchDone() {
+        done = !done;
     }
 }
