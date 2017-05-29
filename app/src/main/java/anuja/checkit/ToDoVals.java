@@ -38,4 +38,8 @@ public class ToDoVals {
     public void switchDone() {
         done = !done;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
