@@ -19,7 +19,7 @@ public class ToDo extends AppCompatActivity {
     LinearLayout lLayout;
     private EditText et;
     private ArrayList<ToDoVals> toDoValsArrayList;
-    private ArrayList<CheckBox> toDoCheckBoxList;
+   // private int numRemoved;
 
 
     @Override
@@ -30,6 +30,7 @@ public class ToDo extends AppCompatActivity {
         lLayout = (LinearLayout) findViewById(R.id.listViewToDo);
         et = (EditText) findViewById(R.id.editTodoTextText);
         toDoValsArrayList = Paper.book().read("ToDOList");
+     //  numRemoved=0;
        if (toDoValsArrayList!=null && toDoValsArrayList.size()>0){
            Log.d("Test", toDoValsArrayList.size()+"");
            for (ToDoVals a : toDoValsArrayList){
@@ -37,7 +38,6 @@ public class ToDo extends AppCompatActivity {
                cb.setText(a.getTextVal());
                cb.setChecked(a.isDone());
                cb.setId(a.getId());
-//               toDoCheckBoxList.add(cb);
                lLayout.addView(cb);
                cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                    @Override
@@ -49,13 +49,26 @@ public class ToDo extends AppCompatActivity {
                         Paper.book().write("ToDOList", toDoValsArrayList);
                    }
                });
+//               cb.setOnLongClickListener(new View.OnLongClickListener(){
+//
+//                   @Override
+//                   public  boolean onLongClick(View view1){
+//
+//
+//                       toDoValsArrayList.remove(cb.getId()-numRemoved);
+//                       lLayout.removeView(view1);
+//                       Paper.book().write("ToDOList", toDoValsArrayList);
+//                        numRemoved++;
+//                       return true;
+//                   }
+//               });
 
            }
        }
        else{
            toDoValsArrayList= new ArrayList<>();
+//           numRemoved=0;
        }
-       toDoCheckBoxList= new ArrayList<>();
         btnAdd = (Button) findViewById(R.id.addToDoButton1);
         btnAdd.setOnClickListener(new OnClickListener() {
             @Override
@@ -67,12 +80,11 @@ public class ToDo extends AppCompatActivity {
                     cb.setText(input);
                     cb.setId(toDoValsArrayList.size());
                     lLayout.addView(cb);
-            //        toDoCheckBoxList.add(cb);
                     toDoValsArrayList.add(tdv);
                     cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                            Log.d("IS Checked ", cb.isChecked()+" " +toDoValsArrayList.get(cb.getId()).isDone()+"");
+//                            Log.d("IS CheckBoxed ", cb.isChecked()+" " +toDoValsArrayList.get(cb.getId()).isDone()+"");
                             int id = cb.getId();
                             toDoValsArrayList.get(id).switchDone();
                             Paper.book().write("ToDOList", toDoValsArrayList);
@@ -81,25 +93,30 @@ public class ToDo extends AppCompatActivity {
 
 
                     });
-                    cb.setOnLongClickListener(new View.OnLongClickListener() {
-                        @Override
-                        public boolean onLongClick(View view) {
-                            String text = cb.getText().toString();
-                            for (int i =0; i < toDoValsArrayList.size(); i++){
-                                if(toDoValsArrayList.get(i).getId() == cb.getId()){
-                                    toDoValsArrayList.remove(i);
-                                }
-                            }
-                            lLayout.removeView(view);
-                            return true;
-                        }
-                    });
-
+//                  cb.setOnLongClickListener(new View.OnLongClickListener(){
+//
+//                      @Override
+//                      public  boolean onLongClick(View view1){
+//                         String text = cb.getText().toString();
+//                          int index =
+//                          for(ToDoVals tdv : toDoValsArrayList){
+//                              if (tdv.getTextVal().equals(text)){
+//
+//                              }
+//                          }
+//                          lLayout.removeView(view1);
+//                          Paper.book().write("ToDOList", toDoValsArrayList);
+//                          numRemoved++;
+//                          return true;
+//                      }
+//                  });
+//
                 }
-                Log.d("Size" , toDoValsArrayList.size()+"");
+//                Log.d("Size" , toDoValsArrayList.size()+"");
                 Paper.book().write("ToDOList" , toDoValsArrayList);
             }
         });
+
     }
 
 
