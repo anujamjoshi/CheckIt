@@ -1,6 +1,5 @@
 package anuja.checkit;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,18 +10,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-
 import java.util.ArrayList;
-import java.util.Map;
-
-import io.paperdb.Book;
 import io.paperdb.Paper;
-
-import static android.R.attr.id;
-import static android.R.id.input;
-import static android.R.id.list;
-import static android.system.Os.remove;
 
 
 public class ToDo extends AppCompatActivity {

@@ -4,16 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
-
-import static android.R.id.list;
+import io.paperdb.Paper;
 
 public class Notes extends AppCompatActivity {
     private Button btnNote;
@@ -49,6 +46,8 @@ public class Notes extends AppCompatActivity {
                 if (listDataChild.get(key).size()<=0){
                     listDataHeader.remove(key);
                 }
+                Paper.book().write("HeaderList", listDataHeader);
+                Paper.book().write("ChildList", listDataChild);
                 listAdapter.notifyDataSetChanged();
                 return true;
             }
@@ -59,8 +58,12 @@ public class Notes extends AppCompatActivity {
      * Preparing the list data
      */
     private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
+        listDataHeader = Paper.book().read("HeaderList");
+        listDataChild = Paper.book().read("ChildList");
+        if(listDataChild==null && listDataHeader==null) {
+            listDataHeader = new ArrayList<String>();
+            listDataChild = new HashMap<String, List<String>>();
+        }
 
 
         etHead = (EditText)findViewById(R.id.editHeaderText);
@@ -87,6 +90,8 @@ public class Notes extends AppCompatActivity {
                         listDataChild.put(header, a);
                     }
 //                    Log.d("Hello", listDataChild.size()+"" );
+                    Paper.book().write("HeaderList", listDataHeader);
+                    Paper.book().write("ChildList", listDataChild);
                     listAdapter.notifyDataSetChanged();
                 }
             }
