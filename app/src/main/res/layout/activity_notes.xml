@@ -15,7 +15,7 @@
         android:layout_marginTop="26dp"
         android:textColor="@color/colorBackground"
 
-        android:hint="What is the heading of this note?"/>
+        android:hint="Title"/>
 
     <EditText
         android:id="@+id/editNoteContent"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="What of this note?"/>
+        android:hint="Note"/>
     <Button
         android:id="@+id/addnewNoteButton"
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         android:textColor="@color/colorText"
         android:backgroundTint="@color/colorBackground"
         android:minWidth="10dip"
-        android:text="Add Notes"
+        android:text="Add Note"
         android:layout_centerHorizontal="true"
         />
 
