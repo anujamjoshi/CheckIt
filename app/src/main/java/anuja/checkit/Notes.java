@@ -96,6 +96,8 @@ public class Notes extends AppCompatActivity {
             public void onClick(View view) {
                 String input = etNote.getText().toString();
                 String header = etHead.getText().toString();
+                etNote.getText().clear();
+                etHead.getText().clear();
                 if (header.length()<=0){
                     Toast.makeText(Notes.this, "PLEASE ENTER A HEADER", Toast.LENGTH_SHORT).show();
                 }

@@ -86,6 +86,7 @@ public class ToDo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                String input = (et.getText().toString());
+                et.getText().clear();
                 if (input.length()>0 ){
                     final ToDoVals tdv = new ToDoVals(input, false, toDoValsArrayList.size());
                     final CheckBox cb = new CheckBox(ToDo.this);
